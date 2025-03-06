@@ -11,7 +11,19 @@
 - 详细的进度显示和下载统计
 - 完整的日志记录
 
-## 安装依赖
+## 环境配置
+
+### 创建conda环境
+
+```bash
+# 创建名为binance_klines_syncer的新环境
+conda create -n binance_klines_syncer python=3.10
+
+# 激活环境
+conda activate binance_klines_syncer
+```
+
+### 安装依赖
 
 ```bash
 pip install aiohttp
@@ -48,11 +60,13 @@ python sync.py --type monthly --symbol ETHUSDT
 
 ### 快速启动脚本
 
-使用提供的shell脚本快速启动下载：
+使用提供的shell脚本快速启动下载（使用source命令以保持在conda环境中）：
 ```bash
-./sync_monthly.sh  # 下载monthly数据
-./sync_daily.sh    # 下载daily数据
+source sync_monthly.sh  # 下载monthly数据
+source sync_daily.sh    # 下载daily数据
 ```
+
+注意：使用`source`命令（或`.`命令）执行脚本，这样可以保持在conda环境中。不要直接使用`./sync_monthly.sh`的方式执行。
 
 ## 支持的时间周期
 
@@ -116,4 +130,4 @@ logs/
 
 ## 许可证
 
-MIT License 
+MIT License
